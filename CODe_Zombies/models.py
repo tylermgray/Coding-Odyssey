@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import Dict, Any
 
 def make_player(name: str, character_id: str, characters: Dict[str, Any], weapons: Dict[str, Any]) -> Dict[str, Any]:
-    char = charcters[character_id]
+    char = characters[character_id]
     starter_weapon = weapons["pistol"]
     return {
         "name": name,
@@ -10,5 +10,4 @@ def make_player(name: str, character_id: str, characters: Dict[str, Any], weapon
         "favored_type": char["favored_weapon"],
         "hp": 150,
         "max hp": 250,
-        "attack": 
     }

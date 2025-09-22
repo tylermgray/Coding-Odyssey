@@ -9,7 +9,7 @@ def main_menu() -> str:
 
 def character_select(characters: dict) -> str:
     print("\nChoose your character:")
-    keys = list(character.keys())
+    keys = list(characters.keys())
     for i, k in enumerate(keys, 1):
         print(f"    {i}) {characters[k]['name']}. (favored: {characters[k]['favored_weapon']})")
     while True:

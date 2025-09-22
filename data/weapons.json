@@ -7,7 +7,7 @@
         "max_ammo_count": 88, 
         "fire_rate": 1,
         "attack_bonus": 0,
-        "die_bonus": 0,
+        "die_bonus": 0
     },
 
     "mp40": {
