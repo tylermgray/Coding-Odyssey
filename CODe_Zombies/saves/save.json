@@ -1,0 +1,23 @@
+{
+  "player": {
+    "name": "Save1",
+    "character": "Dr. Richtofen",
+    "favored_type": "SMG",
+    "base_hp": 150,
+    "max hp": 250,
+    "round": 10,
+    "weapon": {
+      "name": "Colt 1911",
+      "fire_mode": "Semi Automatic",
+      "mag_size": 8,
+      "max_ammo_count": 88,
+      "fire_rate": 1,
+      "attack_bonus": 0,
+      "die_bonus": 0,
+      "attack": 75
+    }
+  },
+  "progress": {
+    "seed": null
+  }
+}

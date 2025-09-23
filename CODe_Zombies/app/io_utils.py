@@ -17,6 +17,7 @@ def load_json(path: pathlib.Path) -> dict:
         with path.open("r", encoding="utf-8") as f:
             return json.load(f)
     except FileNotFoundError:
+        print(f"File not found: {path}")
         return {}
     
 def save_json(path: pathlib.Path, data: dict) -> None:

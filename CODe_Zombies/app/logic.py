@@ -18,3 +18,6 @@ def load_game() -> Dict[str, Any] | None:
     from .io_utils import load_json, SAVES_DIR
     data = load_json(SAVES_DIR / "save.json")
     return data or None
+
+def save_game(state) -> None:
+    save_json(SAVES_DIR / "save.json", state)

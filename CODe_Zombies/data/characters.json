@@ -1,7 +1,7 @@
 {
     "dempsey": {
         "name": "Dempsey",
-        "hp": 150,
+        "base_hp": 150,
         "favored_weapon": "AR",
         "has_juggernog": false,
         "has_double_tap": false,
@@ -10,7 +10,7 @@
 
     "nikolai": {
         "name": "Nikolai",
-        "hp": 150,
+        "base_hp": 150,
         "favored_weapon": "Shotgun",
         "has_juggernog": false,
         "has_double_tap": false,
@@ -19,7 +19,7 @@
 
     "richtofen": {
         "name": "Dr. Richtofen",
-        "hp": 150,
+        "base_hp": 150,
         "favored_weapon": "SMG",
         "has_juggernog": false,
         "has_double_tap": false,
@@ -28,7 +28,7 @@
     
     "takeo": {
         "name": "Takeo",
-        "hp": 150,
+        "base_hp": 150,
         "favored_weapon": "Pistol",
         "has_juggernog": false,
         "has_double_tap": false,
