@@ -5,7 +5,7 @@ from app.io_utils import *
 from app.ui import *
 from app.logic import *
 from app.combat import *
-
+import sys
 
 
 
@@ -18,8 +18,8 @@ def start() -> None:
     while True:
         choice = main_menu()
         if choice == "q":
-            print("Goodbye.")
-            return
+            print(f"\nGoodbye.")
+            sys.exit()
         elif choice == "c":
             state = load_game()
             if not state:
@@ -37,6 +37,7 @@ def start() -> None:
             print("Starter weapon:", state['player']['weapon']['name'])
             print("Autosaved to saves/save.json")
             press_any_key()
+            break
         else:
             print("Choose N, C, or Q.")
 
@@ -51,10 +52,15 @@ def run() -> None:
             player_choice = between_round_menu(state)
             if player_choice == True:
                 save_game(state)
-            else:
+            else:    
                 break
-        print_health_bar(state)        
-        start_combat(state, 'standard')
+        
+        if state['player']['round'] % 6 == 0:
+            start_combat(state, 'special')
+        else:
+            start_combat(state, 'standard')
+        
+        print_health_bar(state)
 
     
 

@@ -3,6 +3,7 @@
         "colt_1911": {
             "name": "Colt 1911",
             "fire_mode": "Semi Automatic",
+            "type": "pistol",
             "mag_size": 8,
             "max_ammo_count": 88, 
             "fire_rate": 1,
@@ -16,6 +17,7 @@
         "mp40": {
             "name": "MP40",
             "fire_mode": "Automatic",
+            "type": "smg",
             "mag_size": 32,
             "max_ammo_count": 352, 
             "fire_rate": 5,
@@ -29,6 +31,7 @@
         "galil": {
             "name": "Galil",
             "fire_mode": "Automatic",
+            "type": "ar",
             "mag_size": 30,
             "max_ammo_count": 360, 
             "fire_rate": 5,
@@ -40,6 +43,7 @@
         "m16": {
             "name": "M16",
             "fire_mode": "Burst",
+            "type": "ar",
             "mag_size": 30,
             "max_ammo_count": 360, 
             "fire_rate": 3,
@@ -51,6 +55,7 @@
         "m14": {
             "name": "M14",
             "fire_mode": "Semi Automatic",
+            "type": "ar",
             "mag_size": 15,
             "max_ammo_count": 165, 
             "fire_rate": 1,
@@ -65,6 +70,7 @@
         "trench_gun": {
             "name": "Trench Gun",
             "fire_mode": "Semi Automatic",
+            "type": "shotgun",
             "mag_size": 6,
             "max_ammo_count": 66, 
             "fire_rate": 1,
@@ -76,6 +82,7 @@
         "olympia": {
             "name": "Olympia",
             "fire_mode": "Semi Automatic",
+            "type": "shotgun",
             "mag_size": 2,
             "max_ammo_count": 44, 
             "fire_rate": 1,

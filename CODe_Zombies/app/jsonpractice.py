@@ -7,7 +7,7 @@ characters = {
     "dempsey": {
         "name": "Dempsey",
         "hp": 150,
-        "favored_weapon": "AR",
+        "favored_weapon": "ar",
         "has_juggernog": False,
         "has_double_tap": False,
         "has_deadshot_daiquiri": False
@@ -15,7 +15,7 @@ characters = {
     "nikolai": {
         "name": "Nikolai",
         "hp": 150,
-        "favored_weapon": "Shotgun",
+        "favored_weapon": "shotgun",
         "has_juggernog": False,
         "has_double_tap": False,
         "has_deadshot_daiquiri": False
@@ -23,7 +23,7 @@ characters = {
     "richtofen": {
         "name": "Dr. Richtofen",
         "hp": 150,      
-        "favored_weapon": "SMG",
+        "favored_weapon": "smg",
         "has_juggernog": False,
         "has_double_tap": False,
         "has_deadshot_daiquiri": False

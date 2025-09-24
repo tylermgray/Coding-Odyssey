@@ -46,7 +46,7 @@ def character_select(characters: dict) -> str:
     print("\nChoose your character:")
     keys = list(characters.keys())
     for i, k in enumerate(keys):
-        print(f"    {i}) {characters[k]['name']}. (favored: {characters[k]['favored_weapon']})")
+        print(f"    {i + 1}) {characters[k]['name']}. (favored: {characters[k]['favored_weapon']})")
     while True:
         choice = input("> ").strip()
         if choice.isdigit():

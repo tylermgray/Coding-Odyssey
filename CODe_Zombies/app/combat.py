@@ -7,17 +7,46 @@ from app.logic import *
 def player_attack(state, enemy):
     player = state['player']
     player_weapon = player['weapon']
-    damage_multiplier = random.randint(0, player_weapon['fire_rate'])
-    damage = player_weapon['attack'] * damage_multiplier
+    player_points = player['points']
 
+
+
+    if random.randint(1, 5) >= 2:
+        player_hit = 1
+    else:
+        player_hit = 0
+    
+    if player['favored_type'] == player_weapon['type']:
+        damage_bonus = player_weapon['attack_bonus']
+        damage_bonus += 25
+
+    damage = (player_weapon['attack'] + damage_bonus) * player_weapon['fire_rate'] * player_hit
+
+    gun_image = """⠀
+ ⣤⣄⣴⣶⣿⣿⣶⣶⣦⣤⣤⣤⣶⣶⣶⣶⣶⣶⣶⣶⣾⣿⣿⣶⣀⣶⣆⣶⣦
+⠀⠉⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿ *PEW PEW*
+⢀⣀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇ 
+⠈⠛⠛⢿⣿⣿⣿⣿⣿⠛⡟⠛⢿⡿⠛⠛⠛⠛⠛⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⢀⣿⣿⣿⣿⣿⣧⣀⣀⣀⡼⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⣼⣿⣿⣿⣿⣿⠋⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⢰⣿⣿⣿⣿⣿⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⢀⣿⣿⣿⣿⣿⣿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⣼⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠉⠙⠛⠿⠿⣿⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"""
+
+    print(gun_image)
+    
     if damage == 0:
         print(f"\nYou need to hit the firing range, you missed...")
     else:
+        player_points += 10
         print(f"\nYou did {damage} damage to {enemy['name']}!")
         enemy['base_hp'] -= damage
 
         if enemy['base_hp'] <= 0:
+            player_points += 250
             print(f"\nYou have defeated {enemy['name']}!")
+            print(f"\nCurrent Points: {player_points}")
         else:
             print(f"\n{enemy['name']} has {enemy['base_hp']} health remaining.")
 
@@ -43,19 +72,22 @@ def player_input(state):
 def enemy_attack(state, enemy):
     player = state['player']
     damage = enemy['attack']
+    enemy_health = enemy['base_hp']
     hit = random.randint(0, 1)
 
-    if hit == 1:
-        print(f"\n{enemy['name']} hit you for {damage} damage!")
-        player['base_hp'] -= damage
-    else:
-        print(f"\n{enemy['name']} missed!")
+    if enemy_health > 0:
+        if hit == 1:
+            print(f"\n{enemy['name']} hit you for {damage} damage!")
+            player['base_hp'] -= damage
+        else:
+            print(f"\n{enemy['name']} missed!")
 
+        if player['base_hp'] <= 0:
+            print(f"\nBeep bop bope beep. You died!")
+        else:
+            print(f"\nYou have {player['base_hp']} health remaining.")
 
-    if player['base_hp'] <= 0:
-        print(f"\nBeep bop bope beep. You died!")
-    else:
-        print(f"\nYou have {player['base_hp']} health remaining.")
+    
 
 
 
@@ -66,6 +98,31 @@ def start_combat(state, enemy_type) -> None:
     keys = list(enemies.keys())
     enemy = enemies[random.choice(keys)]
 
+    
+    
+    if enemy['tags'] == ['normal']:
+        zombie_image = """⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+            ⢠⣾⣿⣿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣷⣶⣾⣿⣷⣶⣄⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⢿⣿⣿⣿⣷⡀⠀
+⠀⠀⠀⠀⠀⠀⣠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠘⠿⢻⣿⣿⡄
+⠀⠀⠀⣠⣴⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡀⠀⠀⠀⠸⠋⢿⣇
+⠀⢀⣾⣿⣿⢿⣿⣿⠟⠛⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⡀⠀⠀⠀⠀⠀⠁
+⣶⣿⣿⢿⣯⣼⡿⠀⠀⠀⠀⢹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡄⠀⠀⠀⠀⠀
+⠘⠻⠟⠀⠉⡿⠁⠀⠀⠀⠀⠀⠘⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠁⠀⠀⠀⠀⠀⠀⠀⠈⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⡇⢿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⣿⣿⣿⡟⠀⠸⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⣿⣿⣿⡇⠀⠀⢿⣿⣿⣧⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣾⣿⣿⣿⠋⠀⠀⠀⢸⣿⣿⣿⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⠃⠀⠀⠀⠀⠀⣿⣿⣿⠄⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⣿⣿⡿⠁⠀⠀⠀⠀⠀⠀⢿⣿⣿⡄⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⣿⣿⡟⠁⠀⠀⠀⠀⠀⠀⠀⢘⣿⣿⣧⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⢰⣿⣿⡿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠈⠛⢿⣿⣷⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠻⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"""
+
+        print(zombie_image)
+
     print(f"\nYou've encountered a {enemy['name']}!")
 
     while enemy['base_hp'] > 0 and state['player']['base_hp'] > 0:
@@ -73,7 +130,6 @@ def start_combat(state, enemy_type) -> None:
 
         if player_choice == 'S':
             player_attack(state, enemy)
-
         elif player_choice == 'H':
              player_heals(state)
 

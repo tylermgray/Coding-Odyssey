@@ -9,7 +9,8 @@ def make_player(name: str, character_id: str, characters: Dict[str, Any], weapon
         "character": char["name"],
         "favored_type": char["favored_weapon"],
         "weapon": starter_weapon,
-        "hp": 150,
+        "base_hp": 150,
         "max hp": 250,
-        "round": 1
+        "round": 1,
+        "points": 0
     }
