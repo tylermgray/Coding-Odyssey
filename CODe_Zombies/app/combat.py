@@ -8,7 +8,7 @@ def player_attack(state, enemy):
     player = state['player']
     player_weapon = player['weapon']
     player_points = player['points']
-
+    damage_bonus = player_weapon['attack_bonus']
 
 
     if random.randint(1, 5) >= 2:
@@ -17,7 +17,6 @@ def player_attack(state, enemy):
         player_hit = 0
     
     if player['favored_type'] == player_weapon['type']:
-        damage_bonus = player_weapon['attack_bonus']
         damage_bonus += 25
 
     damage = (player_weapon['attack'] + damage_bonus) * player_weapon['fire_rate'] * player_hit
@@ -42,13 +41,17 @@ def player_attack(state, enemy):
         player_points += 10
         print(f"\nYou did {damage} damage to {enemy['name']}!")
         enemy['base_hp'] -= damage
+        
 
         if enemy['base_hp'] <= 0:
             player_points += 250
             print(f"\nYou have defeated {enemy['name']}!")
             print(f"\nCurrent Points: {player_points}")
+            return player_points
         else:
             print(f"\n{enemy['name']} has {enemy['base_hp']} health remaining.")
+
+        return player_points
 
 
 
@@ -62,10 +65,14 @@ def player_input(state):
     player = state['player']
     player_choices = ["[S]hoot", "[H]eal"]
 
-    if player['base_hp'] == 150:
+    if player['base_hp'] >= 150:
         player_choices.remove("[H]eal")
     
+    
     player_choice = input(f"\nChoose an option:\n{"    ".join(player_choices)}\n>  ").upper()
+    if player['base_hp'] >= 150 and player_choice == 'H':
+        print("\nStop trying to cheat...\n")
+        return
     return player_choice
 
 
