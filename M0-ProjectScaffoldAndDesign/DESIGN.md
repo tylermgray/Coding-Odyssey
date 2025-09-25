@@ -1,4 +1,4 @@
-# DICE 115
+# CODe Zombies
 _A Python Call of Duty Zombies text game project for Coding Odyssey 1._
 
 
@@ -9,10 +9,16 @@ _A Python Call of Duty Zombies text game project for Coding Odyssey 1._
 
 - Select main character:    **Dempsey**         **Nikolai**                     **Richtofen**               **Takeo**
 - Fight enemies:            **Zombies**         **Nova-6 Crawlers**             **Hell-Hounds**             **Parasites**           **Denizens**            **Vermin**  **Keepers**
-- Fight bosses:             **Margwa**          **Mangler** **Abomination**     **Amalgam**                 **George A. Romero**    **Cosmic Silverback**   **Panzer**  **Brutus**  **Avogadro**
-- Possible Activities:      **Mystery Box**     **Boarding Window System**      **Pack-a-Punch System**     **Point System**        **Round Increase System**
-- Wants:                    **Normal enemy health increases each round**        **Random chance for Power-Ups (Double Points, Nuke, Max Ammo, Max Health, etc.)**
-- Future:                   **Ammo Mods after first P-a-P | Napalm Burst(Fire), Dead Wire(Shock), Cryo Freeze(Freeze), Brain Rot(Poison), Shatter Blast(Explosive), Shadow Rift(Void)**
+- Future Fight bosses:      **Margwa**          **Mangler** **Abomination**     **Amalgam**                 **George A. Romero**    **Cosmic Silverback**   **Panzer**  **Brutus**  **Avogadro**
+- Future Wants/Activities:       **Mystery Box**     **Boarding Window System**      **Pack-a-Punch System**     **Point System**        **Round Increase System**             **Normal enemy health increases each round**        **Random chance for Power-Ups (Double Points, Nuke, Max Ammo, Max Health, etc.)** 
+- Far Future:                   **Ammo Mods after first P-a-P | Napalm Burst(Fire), Dead Wire(Shock), Cryo Freeze(Freeze), Brain Rot(Poison), Shatter Blast(Explosive), Shadow Rift(Void)**
+
+
+### GOALS
+
+- Overall
+- Describe Project (Single Sentence)
+- Time Left
 
 -----------------
 ## File Structure

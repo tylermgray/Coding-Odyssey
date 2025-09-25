@@ -1,8 +1,8 @@
 {
   "player": {
-    "name": "wife",
-    "character": "Dempsey",
-    "favored_type": "ar",
+    "name": "Dixon",
+    "character": "Takeo",
+    "favored_type": "pistol",
     "weapon": {
       "name": "Colt 1911",
       "fire_mode": "Semi Automatic",
@@ -14,10 +14,10 @@
       "die_bonus": 0,
       "attack": 75
     },
-    "base_hp": 50,
+    "base_hp": 150,
     "max hp": 250,
     "round": 5,
-    "points": 0
+    "points": 1000
   },
   "progress": {
     "seed": null

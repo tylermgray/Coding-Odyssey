@@ -4,6 +4,7 @@ from app.ui import *
 from app.logic import *
 
 
+
 def player_attack(state, enemy):
     player = state['player']
     player_weapon = player['weapon']
@@ -46,14 +47,12 @@ def player_attack(state, enemy):
         if enemy['base_hp'] <= 0:
             player_points += 250
             print(f"\nYou have defeated {enemy['name']}!")
-            print(f"\nCurrent Points: {player_points}")
             return player_points
+        
         else:
             print(f"\n{enemy['name']} has {enemy['base_hp']} health remaining.")
-
-        return player_points
-
-
+    
+    return player_points
 
 def player_heals(state):
         player = state['player']
@@ -148,9 +147,9 @@ def start_combat(state, enemy_type) -> None:
 
     if state['player']['base_hp'] > 0:
         state['player']['round'] += 1
+        state['player']['points'] += 250
         print(f"\nWelcome to Round {state['player']['round']}")
-
-        
+        print(f"\nCurrent Points: {state['player']['points']}")
 
         return True
     else:
