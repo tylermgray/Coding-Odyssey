@@ -39,20 +39,20 @@ def player_attack(state, enemy):
     if damage == 0:
         print(f"\nYou need to hit the firing range, you missed...")
     else:
-        player_points += 10
+        state['player']['points'] += 10
         print(f"\nYou did {damage} damage to {enemy['name']}!")
         enemy['base_hp'] -= damage
         
 
         if enemy['base_hp'] <= 0:
-            player_points += 250
+            state['player']['points'] += 250
             print(f"\nYou have defeated {enemy['name']}!")
-            return player_points
+            
         
         else:
             print(f"\n{enemy['name']} has {enemy['base_hp']} health remaining.")
     
-    return player_points
+    
 
 def player_heals(state):
         player = state['player']
@@ -147,7 +147,6 @@ def start_combat(state, enemy_type) -> None:
 
     if state['player']['base_hp'] > 0:
         state['player']['round'] += 1
-        state['player']['points'] += 250
         print(f"\nWelcome to Round {state['player']['round']}")
         print(f"\nCurrent Points: {state['player']['points']}")
 
