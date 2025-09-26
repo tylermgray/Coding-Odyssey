@@ -8,8 +8,6 @@ from app.combat import *
 import sys
 
 
-
-
 def start() -> None:
     ensure_dirs()
     characters = load_json(DATA_DIR / "characters.json")
@@ -62,7 +60,6 @@ def run() -> None:
         
         print_health_bar(state)
 
-    
 
 if __name__ == "__main__":
     

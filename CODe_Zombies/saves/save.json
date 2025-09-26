@@ -16,8 +16,8 @@
     },
     "base_hp": 150,
     "max hp": 250,
-    "round": 1,
-    "points": 0
+    "round": 5,
+    "points": 1080
   },
   "progress": {
     "seed": null

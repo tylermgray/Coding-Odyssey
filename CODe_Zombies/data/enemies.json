@@ -50,7 +50,7 @@
             "hp_per_round_multiplier": 1,
             "attack": 25,
             "points_on_kill": 100,
-            "tags": ["normal"],
+            "tags": ["special"],
             "traits": [],
             "description": "A small spider-like zombie that attacks in large groups on special rounds. They have low health and attack power but can overwhelm characters with their numbers."
         },
@@ -61,7 +61,7 @@
             "hp_per_round": 2,
             "attack": 25,
             "points_on_kill": 100,
-            "tags": ["boss"],
+            "tags": ["special"],
             "traits": ["melee", "fire"],
             "description": "The Keeper has low health and does not deal a lot of damage, making them a relatively insignificant foe in terms of pure combat. Any weapon can kill a Keeper quickly."
         }
