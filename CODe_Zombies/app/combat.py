@@ -8,7 +8,6 @@ from app.logic import *
 def player_attack(state, enemy):
     player = state['player']
     player_weapon = player['weapon']
-    player_points = player['points']
     damage_bonus = player_weapon['attack_bonus']
 
 

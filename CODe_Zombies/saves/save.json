@@ -1,6 +1,6 @@
 {
   "player": {
-    "name": "Dixon",
+    "name": "Save1",
     "character": "Takeo",
     "favored_type": "pistol",
     "weapon": {
@@ -14,7 +14,7 @@
       "die_bonus": 0,
       "attack": 75
     },
-    "base_hp": 150,
+    "base_hp": 100,
     "max hp": 250,
     "round": 5,
     "points": 1080
