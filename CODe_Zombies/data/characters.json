@@ -1,0 +1,37 @@
+{
+    "dempsey": {
+        "name": "Dempsey",
+        "base_hp": 150,
+        "favored_weapon": "ar",
+        "has_juggernog": false,
+        "has_double_tap": false,
+        "has_deadshot_daiquiri": false
+    },
+
+    "nikolai": {
+        "name": "Nikolai",
+        "base_hp": 150,
+        "favored_weapon": "shotgun",
+        "has_juggernog": false,
+        "has_double_tap": false,
+        "has_deadshot_daiquiri": false
+    },
+
+    "richtofen": {
+        "name": "Dr. Richtofen",
+        "base_hp": 150,
+        "favored_weapon": "smg",
+        "has_juggernog": false,
+        "has_double_tap": false,
+        "has_deadshot_daiquiri": false
+    },
+    
+    "takeo": {
+        "name": "Takeo",
+        "base_hp": 150,
+        "favored_weapon": "pistol",
+        "has_juggernog": false,
+        "has_double_tap": false,
+        "has_deadshot_daiquiri": false
+    }
+}

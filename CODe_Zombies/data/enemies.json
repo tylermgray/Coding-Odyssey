@@ -1,0 +1,82 @@
+{
+    "special": {
+        "nova6_crawler": {
+            "name": "Nova-6 Crawler",
+            "base_hp": 112.5,
+            "hp_per_round_multiplier": 1.1,
+            "attack": 50,
+            "points_on_kill": 100,
+            "tags": ["special"],
+            "traits": ["poison"],
+            "description": "A slow-moving zombie that explodes in a cloud of toxic gas upon death, dealing poison damage to all characters."
+        },
+
+        "hell_hound": {
+            "name": "Hell Hound",
+            "base_hp": 400.0,
+            "hp_per_round_multiplier": 1,
+            "attack": 50,
+            "points_on_kill": 100,
+            "tags": ["special"],
+            "traits": ["fire"],
+            "description": "A fast-moving special zombie that explodes in a burst of flames upon death, dealing fire damage to all characters."
+        },
+
+        "parasites": {
+            "name": "Parasites",
+            "base_hp": 100,
+            "hp_per_round_multiplier": 1,
+            "attack": 25,
+            "points_on_kill": 100,
+            "tags": ["special"],
+            "traits": ["poison"],
+            "description": "Small, fast-moving flying zombies that attack on special rounds. They have low health and attack power but can overwhelm characters with their numbers."
+        },
+
+        "denizen": {
+            "name": "Denizen",
+            "base_hp": 50,
+            "hp_per_round_multiplier": 1,
+            "attack": 25,
+            "points_on_kill": 100,
+            "tags": ["special"],
+            "traits": ["melee"],
+            "description": "A small, sneaky zombie that attacks with its claws."
+        },
+
+        "vermin": {
+            "name": "Vermin",
+            "base_hp": 6,
+            "hp_per_round_multiplier": 1,
+            "attack": 25,
+            "points_on_kill": 100,
+            "tags": ["special"],
+            "traits": [],
+            "description": "A small spider-like zombie that attacks in large groups on special rounds. They have low health and attack power but can overwhelm characters with their numbers."
+        },
+
+        "keeper": {
+            "name": "Keeper",
+            "base_hp": 8,
+            "hp_per_round": 2,
+            "attack": 25,
+            "points_on_kill": 100,
+            "tags": ["special"],
+            "traits": ["melee", "fire"],
+            "description": "The Keeper has low health and does not deal a lot of damage, making them a relatively insignificant foe in terms of pure combat. Any weapon can kill a Keeper quickly."
+        }
+    },    
+
+    "standard": {
+        "standard_zombie": {
+            "name": "Standard Zombie",
+            "base_hp": 150.0,
+            "hp_per_round_multiplier": 1.1,
+            "attack": 50,
+            "points_on_kill": 100,
+            "tags": ["normal"],
+            "traits": [],
+            "description": "A regular zombie with no special abilities."
+        }
+    }
+}
