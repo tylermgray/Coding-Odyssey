@@ -21,55 +21,55 @@ def player_attack(state, enemy):
 
     damage = (player_weapon['attack'] + damage_bonus) * player_weapon['fire_rate'] * player_hit
 
-    gun_image = """⠀
+    gun_image = f"""⠀
  ⣤⣄⣴⣶⣿⣿⣶⣶⣦⣤⣤⣤⣶⣶⣶⣶⣶⣶⣶⣶⣾⣿⣿⣶⣀⣶⣆⣶⣦
-⠀⠉⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿ *PEW PEW*
+⠀⠉⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿ {yellow}*{red} PEW PEW {yellow}*{white}
 ⢀⣀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇ 
-⠈⠛⠛⢿⣿⣿⣿⣿⣿⠛⡟⠛⢿⡿⠛⠛⠛⠛⠛⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠈⠛⠛⢿⣿⣿⣿⣿⣿⠛{black}⡟{white}⠛⢿⡿⠛⠛⠛⠛⠛⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⢀⣿⣿⣿⣿⣿⣧⣀⣀⣀⡼⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⣼⣿⣿⣿⣿⣿⠋⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⢰⣿⣿⣿⣿⣿⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⢀⣿⣿⣿⣿⣿⣿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⣼⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⣼{black}⣿⣿⣿⣿⣿{white}⠋⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⢰{black}⣿⣿⣿⣿⣿{white}⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⢀⣿{black}⣿⣿⣿⣿{white}⣿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⣼{black}⣿⣿⣿⣿⣿{white}⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠉⠙⠛⠿⠿⣿⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"""
 
-    print(gun_image)
+    render_text(state, gun_image)
     
     if damage == 0:
-        print(f"\nYou need to hit the firing range, you missed...")
+        render_text(state, f"\n{red}You need to hit the firing range, {yellow}you missed...{white}")
     else:
         state['player']['points'] += 10
-        print(f"\nYou did {damage} damage to {enemy['name']}!")
+        render_text(state, f"\nYou did {red}{damage} damage{white} to {enemy['name']}!")
         enemy['base_hp'] -= damage
         
 
         if enemy['base_hp'] <= 0:
             state['player']['points'] += 250
-            print(f"\nYou have defeated {enemy['name']}!")
+            render_text(state, f"\n{yellow}You have {red}defeated{yellow} {enemy['name']}!{white}")
             
         
         else:
-            print(f"\n{enemy['name']} has {enemy['base_hp']} health remaining.")
+            render_text(state, f"\n{enemy['name']} has {yellow}{enemy['base_hp']} health{white} remaining.")
     
     
 
 def player_heals(state):
         player = state['player']
         player['base_hp'] += 50
-        print(f"You healed, your health is now {player['base_hp']}.")
+        render_text(state, f"{green}You healed{white}, your health is now {green}{player['base_hp']}{white}.")
 
 
 def player_input(state):
     player = state['player']
-    player_choices = ["[S]hoot", "[H]eal"]
+    player_choices = [f"{red}[S]{white}hoot", f"{green}[H]{white}eal"]
 
     if player['base_hp'] >= 150:
-        player_choices.remove("[H]eal")
+        player_choices.remove(f"{green}[H]{white}eal")
     
     
-    player_choice = input(f"\nChoose an option:\n{"    ".join(player_choices)}\n>  ").upper()
+    player_choice = typewriter_input(f"\nChoose an option:\n{"    ".join(player_choices)}\n>  ").upper()
     if player['base_hp'] >= 150 and player_choice == 'H':
-        print("\nStop trying to cheat...\n")
+        render_text(state, "\nInvalid input. Try again\n")
         return
     return player_choice
 
@@ -77,21 +77,20 @@ def player_input(state):
 def enemy_attack(state, enemy):
     player = state['player']
     damage = enemy['attack']
-    enemy_health = enemy['base_hp']
-    hit = random.randint(0, 1)
+    
 
-    if enemy_health > 0:
+    hit = random.randint(0, 1)
+    
+    if enemy['base_hp'] > 0:
         if hit == 1:
-            print(f"\n{enemy['name']} hit you for {damage} damage!")
+            render_text(state, f"\n{enemy['name']} hit you for {red}{damage} damage{white}!")
             player['base_hp'] -= damage
         else:
-            print(f"\n{enemy['name']} missed!")
+            render_text(state, f"\n{enemy['name']} swung at you and {yellow}missed!{white}")
 
         if player['base_hp'] <= 0:
-            print(f"\nBeep bop bope beep. You died!")
-        else:
-            print(f"\nYou have {player['base_hp']} health remaining.")
-
+            typewriter_print(f"\nBeep bop bope beep. You died!")
+        
     
 
 
@@ -106,16 +105,16 @@ def start_combat(state, enemy_type) -> None:
     
     
     if enemy['tags'] == ['normal']:
-        zombie_image = """⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+        zombie_image = f"""{black}⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
             ⢠⣾⣿⣿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣷⣶⣾⣿⣷⣶⣄⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣼⣿⣿{yellow}⠛{black}⣿{yellow}⠛{black}⣿⣿⣿⣷⣶⣾⣿⣷⣶⣄⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⢿⣿⣿⣿⣷⡀⠀
 ⠀⠀⠀⠀⠀⠀⣠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠘⠿⢻⣿⣿⡄
-⠀⠀⠀⣠⣴⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡀⠀⠀⠀⠸⠋⢿⣇
-⠀⢀⣾⣿⣿⢿⣿⣿⠟⠛⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⡀⠀⠀⠀⠀⠀⠁
+⠀⠀⠀⣠⣴⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡀⠀⠀⠀{red}⠸{black}⠋⢿⣇
+⠀⢀⣾⣿⣿⢿⣿⣿⠟⠛⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⡀⠀⠀⠀⠀⠀{red}⠁{black}
 ⣶⣿⣿⢿⣯⣼⡿⠀⠀⠀⠀⢹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡄⠀⠀⠀⠀⠀
-⠘⠻⠟⠀⠉⡿⠁⠀⠀⠀⠀⠀⠘⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠁⠀⠀⠀⠀⠀⠀⠀⠈⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠀⠀⠀⠀⠀⠀
+⠘⠻⠟⠀⠉{red}⡿{black}⠁⠀⠀⠀⠀⠀⠘⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀{red}⠁{black}⠀⠀⠀⠀⠀⠀⠀⠈⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⡇⢿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⣿⣿⣿⡟⠀⠸⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⣿⣿⣿⡇⠀⠀⢿⣿⣿⣧⠀⠀⠀⠀⠀⠀
@@ -124,11 +123,11 @@ def start_combat(state, enemy_type) -> None:
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⣿⣿⡿⠁⠀⠀⠀⠀⠀⠀⢿⣿⣿⡄⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⣿⣿⡟⠁⠀⠀⠀⠀⠀⠀⠀⢘⣿⣿⣧⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⢰⣿⣿⡿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠈⠛⢿⣿⣷⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠻⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"""
+⠀⠀⠀⠀⠀⠀⠀⠀⠻⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀{white}⠀"""
 
-        print(zombie_image)
+        render_text(state, zombie_image)
 
-    print(f"\nYou've encountered a {enemy['name']}!")
+    render_text(state, f"\nYou've encountered a {enemy['name']}!")
 
     while enemy['base_hp'] > 0 and state['player']['base_hp'] > 0:
         player_choice = player_input(state)
@@ -139,15 +138,15 @@ def start_combat(state, enemy_type) -> None:
              player_heals(state)
 
         else:
-            print("Invalid input, try again.")
+            render_text(state, "Invalid input, try again.")
             return    
             
         enemy_attack(state, enemy)
 
     if state['player']['base_hp'] > 0:
         state['player']['round'] += 1
-        print(f"\nWelcome to Round {state['player']['round']}")
-        print(f"\nCurrent Points: {state['player']['points']}")
+        typewriter_print(f"\nWelcome to {red}Round {state['player']['round']}{white}")
+        
 
         return True
     else:

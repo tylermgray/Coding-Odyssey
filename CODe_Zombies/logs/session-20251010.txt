@@ -1,0 +1,30 @@
+[11:02:09] NEW GAME: Player as Takeo
+[11:05:03] NEW GAME: Player as Takeo
+[11:09:15] NEW GAME: Takeo as Takeo
+[11:10:39] NEW GAME: Takeo as Takeo
+[11:12:12] NEW GAME: Takeo as Takeo
+[11:14:00] NEW GAME: Takeo as Takeo
+[11:16:09] NEW GAME: Test as Takeo
+[12:09:57] NEW GAME: Takeo as Takeo
+[12:23:50] NEW GAME: Takeo as Takeo
+[12:35:34] NEW GAME: Takeo as Takeo
+[12:42:28] NEW GAME: Takeo as Takeo
+[12:51:57] NEW GAME: Takeo as Takeo
+[12:53:15] NEW GAME: Takeo as Takeo
+[12:58:27] NEW GAME: Takeo as Takeo
+[13:07:00] NEW GAME: Hello World as Takeo
+[13:11:07] NEW GAME: Takeo as Takeo
+[13:13:46] NEW GAME: Takeo as Takeo
+[13:16:22] NEW GAME: Test as Takeo
+[13:17:49] NEW GAME: Hello World! as Takeo
+[13:21:15] NEW GAME: Test as Takeo
+[13:31:29] NEW GAME: Takeo as Takeo
+[13:40:14] NEW GAME: Takeo as Takeo
+[13:40:45] NEW GAME: Takeo as Dr. Richtofen
+[13:56:02] NEW GAME: Takeo as Takeo
+[13:57:35] NEW GAME: Takeo as Takeo
+[14:00:10] NEW GAME: Takeo as Takeo
+[14:01:37] NEW GAME: takeo as Takeo
+[14:10:14] NEW GAME: dixon as Takeo
+[14:12:44] NEW GAME: Takeo as Takeo
+[14:14:59] NEW GAME: Takeo as Takeo

@@ -16,24 +16,24 @@ def start() -> None:
     while True:
         choice = main_menu()
         if choice == "q":
-            print(f"\nGoodbye.")
+            typewriter_print(f"\nGoodbye, thanks for playing!\n")
             sys.exit()
         elif choice == "c":
             state = load_game()
             if not state:
-                print("No save found or save was corrupt.")
+                print(f"{red}No save found or save was corrupt.{white}")
             else:
-                print(f"Loaded: {state['player']['name']} ({state['player']['character']}) — Current Round: {state['player']['round']}")
+                print(f"{green}Loaded:{white} {state['player']['name']} ({state['player']['character']}) — Current Round: {red}{state['player']['round']}{white}")
             press_any_key()
             break
         elif choice == "n":
             # Basic name input (you can improve later)
-            name = input("Enter your save name: ").strip() or "Player"
+            name = typewriter_input("\nEnter your save name: ").strip() or "Player"
             char_id = character_select(characters)
             state = start_new_game(name, char_id, characters, weapons)
             confirm(f"\nYou chose {state['player']['character']} (favored: {state['player']['favored_type']}).")
-            print("Starter weapon:", state['player']['weapon']['name'])
-            print("Autosaved to saves/save.json")
+            typewriter_print(f"Starter weapon: {state['player']['weapon']['name']}")
+            typewriter_print(f"{green}Autosaved to saves/{yellow}save.json{white}")
             press_any_key()
             break
         else:
@@ -43,8 +43,12 @@ def run() -> None:
     ensure_dirs()
     
     state = load_game()
+    
     while True:
+        
+        
         if state['player']['base_hp'] == 0:
+            state['player']['base_hp'] = 150
             start()
         elif state['player']['round'] % 5 == 0:
             player_choice = between_round_menu(state)
@@ -53,12 +57,13 @@ def run() -> None:
             else:    
                 break
         
+
         if state['player']['round'] % 6 == 0:
             start_combat(state, 'special')
         else:
             start_combat(state, 'standard')
         
-        print_health_bar(state)
+        
 
 
 if __name__ == "__main__":
